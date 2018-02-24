@@ -1,10 +1,10 @@
-package com.hsbc.interviewtwitter.service;
+package com.interview.twitter.service;
 
 
-import com.hsbc.interviewtwitter.common.exception.ResourceNotFoundException;
-import com.hsbc.interviewtwitter.dao.TweetsDao;
-import com.hsbc.interviewtwitter.dao.UserDao;
-import com.hsbc.interviewtwitter.domain.Tweet;
+import com.interview.twitter.common.exception.ResourceNotFoundException;
+import com.interview.twitter.dao.TweetsDao;
+import com.interview.twitter.dao.UserDao;
+import com.interview.twitter.domain.Tweet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

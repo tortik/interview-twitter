@@ -1,4 +1,4 @@
-package com.hsbc.interviewtwitter.common.pagination;
+package com.interview.twitter.common.pagination;
 
 
 import lombok.AllArgsConstructor;

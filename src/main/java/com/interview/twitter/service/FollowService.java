@@ -1,6 +1,6 @@
-package com.hsbc.interviewtwitter.service;
+package com.interview.twitter.service;
 
-import com.hsbc.interviewtwitter.dao.UserDao;
+import com.interview.twitter.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

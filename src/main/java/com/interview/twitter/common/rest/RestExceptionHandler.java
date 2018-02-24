@@ -1,7 +1,7 @@
-package com.hsbc.interviewtwitter.common.rest;
+package com.interview.twitter.common.rest;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hsbc.interviewtwitter.common.exception.ResourceNotFoundException;
+import com.interview.twitter.common.exception.ResourceNotFoundException;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;

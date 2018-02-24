@@ -1,7 +1,7 @@
-package com.hsbc.interviewtwitter.domain;
+package com.interview.twitter.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hsbc.interviewtwitter.common.rest.RestConfig;
+import com.interview.twitter.common.rest.RestConfig;
 import lombok.*;
 
 import java.time.ZonedDateTime;
@@ -30,6 +30,7 @@ public class Tweet {
         this.authorId = authorId;
         this.originalAuthorId = authorId;
         this.createdDate = ZonedDateTime.now();
+        this.updatedDate = this.createdDate;
     }
 
 

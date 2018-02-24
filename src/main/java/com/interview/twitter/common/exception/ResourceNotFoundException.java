@@ -1,4 +1,4 @@
-package com.hsbc.interviewtwitter.common.exception;
+package com.interview.twitter.common.exception;
 
 
 

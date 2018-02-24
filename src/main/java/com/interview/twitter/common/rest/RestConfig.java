@@ -1,4 +1,4 @@
-package com.hsbc.interviewtwitter.common.rest;
+package com.interview.twitter.common.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

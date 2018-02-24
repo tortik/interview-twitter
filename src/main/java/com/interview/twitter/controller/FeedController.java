@@ -1,15 +1,14 @@
-package com.hsbc.interviewtwitter.controller;
+package com.interview.twitter.controller;
 
 import com.google.common.collect.Lists;
-import com.hsbc.interviewtwitter.common.pagination.PaginationContext;
-import com.hsbc.interviewtwitter.common.pagination.PaginationUtils;
-import com.hsbc.interviewtwitter.domain.Tweet;
-import com.hsbc.interviewtwitter.domain.TweetResource;
-import com.hsbc.interviewtwitter.service.FeedService;
-import com.hsbc.interviewtwitter.service.assembler.TweetResourceAssembler;
+import com.interview.twitter.common.pagination.PaginationContext;
+import com.interview.twitter.common.pagination.PaginationUtils;
+import com.interview.twitter.domain.Tweet;
+import com.interview.twitter.domain.TweetResource;
+import com.interview.twitter.service.FeedService;
+import com.interview.twitter.service.assembler.TweetResourceAssembler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.http.MediaType;

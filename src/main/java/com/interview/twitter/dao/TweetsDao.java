@@ -1,10 +1,10 @@
-package com.hsbc.interviewtwitter.dao;
+package com.interview.twitter.dao;
 
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import com.hsbc.interviewtwitter.domain.Tweet;
+import com.interview.twitter.domain.Tweet;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;

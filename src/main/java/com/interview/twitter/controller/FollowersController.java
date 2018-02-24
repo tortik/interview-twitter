@@ -1,6 +1,6 @@
-package com.hsbc.interviewtwitter.controller;
+package com.interview.twitter.controller;
 
-import com.hsbc.interviewtwitter.service.FollowService;
+import com.interview.twitter.service.FollowService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

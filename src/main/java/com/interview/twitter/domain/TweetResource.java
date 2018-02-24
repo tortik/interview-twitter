@@ -1,7 +1,7 @@
-package com.hsbc.interviewtwitter.domain;
+package com.interview.twitter.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hsbc.interviewtwitter.common.rest.RestConfig;
+import com.interview.twitter.common.rest.RestConfig;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

@@ -1,7 +1,7 @@
-package com.hsbc.interviewtwitter.service.assembler;
+package com.interview.twitter.service.assembler;
 
-import com.hsbc.interviewtwitter.domain.Tweet;
-import com.hsbc.interviewtwitter.domain.TweetResource;
+import com.interview.twitter.domain.Tweet;
+import com.interview.twitter.domain.TweetResource;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 
 

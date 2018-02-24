@@ -1,10 +1,11 @@
-package com.hsbc.interviewtwitter.service;
+package com.interview.twitter.service;
 
 
 import com.google.common.collect.Maps;
-import com.hsbc.interviewtwitter.dao.TweetsDao;
-import com.hsbc.interviewtwitter.dao.UserDao;
-import com.hsbc.interviewtwitter.domain.Tweet;
+import com.interview.twitter.dao.TweetsDao;
+import com.interview.twitter.dao.UserDao;
+import com.interview.twitter.domain.FollowUser;
+import com.interview.twitter.domain.Tweet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,6 @@ import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -38,6 +38,7 @@ public class FeedService {
         CompletableFuture.runAsync(() -> {
             log.debug("Storing tweet {} to followers feed", tweet);
             usersDao.getFollowed(tweet.getAuthorId()).stream().
+                    map(FollowUser::getUser).
                     peek(u -> log.debug("Saving tweet {} to user feed {}", tweet.getTweetId(), u)).
                     forEach(u -> tweetsDao.storeFeedTweets(u, tweet));
 
@@ -56,7 +57,9 @@ public class FeedService {
     }
 
     private Flux<Tweet> getFilteredFlux(String user) {
-        return processor.filter(t -> usersDao.getFollowed(user).contains(t.getAuthorId())).log();
+        return processor.filter(t ->
+                usersDao.getFollowed(t.getAuthorId()).stream().
+                        anyMatch(u -> u.getUser().equals(user) && u.getStartFollowDate().isBefore(t.getUpdatedDate()))).log();
     }
 
 }

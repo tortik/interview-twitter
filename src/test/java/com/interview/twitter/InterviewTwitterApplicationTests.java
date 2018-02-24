@@ -1,4 +1,4 @@
-package com.hsbc.interviewtwitter;
+package com.interview.twitter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

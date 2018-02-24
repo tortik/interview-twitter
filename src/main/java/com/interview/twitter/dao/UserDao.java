@@ -1,8 +1,8 @@
-package com.hsbc.interviewtwitter.dao;
+package com.interview.twitter.dao;
 
 
 import com.google.common.collect.*;
-import com.hsbc.interviewtwitter.domain.Tweet;
+import com.interview.twitter.domain.FollowUser;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -12,22 +12,22 @@ import java.util.stream.Collectors;
  * Dao layer.
  * Holds user with set of followed user
  * Example:
- * If A follow B, C then B. C will have A as followed user
+ * If A follow B, then B will have A as followed user
  */
 @Component
 public class UserDao {
 
-    private Multimap<String, String> users = HashMultimap.create();
+    private Multimap<String, FollowUser> users = HashMultimap.create();
 
     public void addFollowed(String user, List<String> followed) {
-        followed.stream().forEach(fu -> users.put(fu, user));
+        followed.stream().forEach(fu -> users.put(fu, FollowUser.of(user)));
     }
 
     public void unFollow(String user, String unFollow) {
         users.remove(unFollow, user);
     }
 
-    public Set<String> getFollowed(String user) {
+    public Set<FollowUser> getFollowed(String user) {
         return users.get(user).stream().filter(Objects::nonNull).collect(Collectors.toSet());
     }
 
