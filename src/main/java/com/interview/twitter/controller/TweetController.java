@@ -79,19 +79,19 @@ public class TweetController {
     }
 
     @RequestMapping(value = "users/{currentUser}/tweets/{tweetId}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> removeTweet(@PathVariable("currentUser") String user, @PathVariable("tweeId") String tweeId) {
+    public ResponseEntity<Void> removeTweet(@PathVariable("currentUser") String user, @PathVariable("tweetId") String tweetId) {
 
-        log.debug("User {} wants to remove tweet {}", user, tweeId);
+        log.debug("User {} wants to remove tweet {}", user, tweetId);
 
-        tweetsService.removeTweet(user, tweeId);
+        tweetsService.removeTweet(user, tweetId);
 
         return ResponseEntity.noContent().build();
     }
 
 
     @RequestMapping(value = "users/{currentUser}/tweets/{tweetId}", method = RequestMethod.POST, params = "retweet=true")
-    public ResponseEntity<Void> reTweet(@PathVariable("currentUser") String currentUser, @PathVariable("tweeId") String tweeId) {
-        log.debug("User {} wants to reTweet {}", currentUser, tweeId);
+    public ResponseEntity<Void> reTweet(@PathVariable("currentUser") String currentUser, @PathVariable("tweetId") String tweetId) {
+        log.debug("User {} wants to reTweet {}", currentUser, tweetId);
         throw new NotImplementedException("This part of functionality is not implemented yet");
     }
 
