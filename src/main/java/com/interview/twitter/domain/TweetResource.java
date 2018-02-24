@@ -1,16 +1,16 @@
 package com.interview.twitter.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.interview.twitter.common.rest.RestConfig;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.hateoas.ResourceSupport;
 
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 /**
- *
+ * used for Hateoas resource
  */
 @Getter
 @Setter
@@ -22,10 +22,8 @@ public class TweetResource extends ResourceSupport {
     private String authorId;
     private String originalId;
     private String originalAuthorId;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = RestConfig.DATE_TIME_FORMAT)
-    private ZonedDateTime createdDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = RestConfig.DATE_TIME_FORMAT)
-    private ZonedDateTime updatedDate;
+    private String createdDate;
+    private String updatedDate;
 
     public TweetResource(String id, String authorId, String text) {
         this.tweetId = id;
@@ -33,6 +31,14 @@ public class TweetResource extends ResourceSupport {
         this.text = text;
         this.authorId = authorId;
         this.originalAuthorId = authorId;
+    }
+
+    public void setUpdatedDate(ZonedDateTime dateTime) {
+        this.updatedDate = Optional.ofNullable(dateTime).map(d -> d.format(DateTimeFormatter.ISO_DATE_TIME)).orElse(null);
+    }
+
+    public void setCreatedDate(ZonedDateTime dateTime) {
+        this.createdDate = Optional.ofNullable(dateTime).map(d -> d.format(DateTimeFormatter.ISO_DATE_TIME)).orElse(null);
     }
 
 }
