@@ -22,7 +22,7 @@ public class FollowersController {
     private FollowService followService;
 
     @RequestMapping(value = "users/{currentUser}/followers", method = RequestMethod.POST)
-    public ResponseEntity<Void> followUsers(@PathVariable("currentUser") String currentUser, @RequestBody List<String> userIds){
+    public ResponseEntity<Void> followUsers(@PathVariable("currentUser") String currentUser, @RequestBody List<String> userIds) {
         log.debug("User {} wants to follow {}", currentUser, userIds);
         followService.followUser(currentUser, userIds);
         return ResponseEntity.ok().build();
@@ -30,13 +30,12 @@ public class FollowersController {
 
     @RequestMapping(value = "users/{currentUser}/followers/{unfollowUserId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> unFollowUser(@PathVariable("currentUser") String currentUser,
-                                             @PathVariable("unfollowUserId") String unfollowUserId){
+                                             @PathVariable("unfollowUserId") String unfollowUserId) {
 
         log.debug("User {} wants to unfollow {}", currentUser, unfollowUserId);
-
+        followService.unFollowUser(currentUser, unfollowUserId);
         return ResponseEntity.noContent().build();
     }
-
 
 
 }

@@ -20,4 +20,10 @@ public class FollowService {
 
     }
 
+    public void unFollowUser(String currentUser, String unFollow){
+        userDao.unFollow(currentUser, unFollow);
+        log.debug("User {} successfully unFollow {} ", currentUser, unFollow);
+
+    }
+
 }
