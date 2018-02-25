@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Component
 public class UserDao {
 
-    private Multimap<String, FollowUser> users = HashMultimap.create();
+    private Multimap<String, FollowUser> users =  Multimaps.synchronizedMultimap(HashMultimap.create());
 
     public void addFollowed(String user, List<String> followed) {
         followed.stream().forEach(fu -> users.put(fu, FollowUser.of(user)));
