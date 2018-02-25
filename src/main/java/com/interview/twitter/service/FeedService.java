@@ -43,7 +43,7 @@ public class FeedService {
                     forEach(u -> tweetsDao.storeFeedTweets(u, tweet));
 
             pushTweetToLive(tweet);
-        }).thenAcceptAsync(i -> log.debug("Successfully store to followers feed tweet with id {}", tweet.getTweetId()));
+        }).thenAcceptAsync(i -> log.debug("Successfully stored to followers feed tweet with id {}", tweet.getTweetId()));
     }
 
     public List<Tweet> getFeedTweets(String currentUser) {
