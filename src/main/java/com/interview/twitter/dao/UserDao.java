@@ -19,12 +19,13 @@ public class UserDao {
 
     private Multimap<String, FollowUser> users =  Multimaps.synchronizedMultimap(HashMultimap.create());
 
-    public void addFollowed(String user, List<String> followed) {
+    public void addFollowers(String user, List<String> followed) {
         followed.stream().forEach(fu -> users.put(fu, FollowUser.of(user)));
     }
 
     public void unFollow(String user, String unFollow) {
-        users.remove(unFollow, user);
+        Optional<FollowUser> userToRemove = users.get(unFollow).stream().filter(u -> u.getUser().equals(user)).findFirst();
+        userToRemove.ifPresent(fu -> users.remove(unFollow, fu));
     }
 
     public Set<FollowUser> getFollowed(String user) {

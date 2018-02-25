@@ -19,7 +19,7 @@ public class TweetsDao {
     private Multimap<String, Tweet> feedTweets;
 
     public TweetsDao() {
-        Supplier<SortedSetMultimap<String, Tweet>> sortedMultiSet = () -> MultimapBuilder.SortedSetMultimapBuilder.<String>
+        Supplier<SortedSetMultimap<String, Tweet>> sortedMultiSet = () -> MultimapBuilder.SortedSetMultimapBuilder.
                 hashKeys().treeSetValues(Comparator.comparing(Tweet::getUpdatedDate).reversed()).build();
 
         feedTweets = Multimaps.synchronizedMultimap(sortedMultiSet.get());

@@ -45,7 +45,7 @@ public class TweetController {
     public ResponseEntity<PagedResources<TweetResource>> getUserTweets(@PathVariable("currentUser") String currentUser,
                                                                        @Valid @Min(value = 1) @RequestParam(defaultValue = "1") int page,
                                                                        @Valid @Min(value = 0) @RequestParam(defaultValue = "50") int size) {
-        log.debug("User {} wants to tweet text {}", currentUser);
+        log.debug("User {} wants to get his tweets", currentUser);
 
         List<Tweet> tweets = tweetsService.getMyTweets(currentUser);
 

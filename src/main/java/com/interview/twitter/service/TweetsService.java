@@ -3,7 +3,6 @@ package com.interview.twitter.service;
 
 import com.interview.twitter.common.exception.ResourceNotFoundException;
 import com.interview.twitter.dao.TweetsDao;
-import com.interview.twitter.dao.UserDao;
 import com.interview.twitter.domain.Tweet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ public class TweetsService {
 
     @Autowired
     private TweetsDao tweetsDao;
-    @Autowired
-    private UserDao usersDao;
     @Autowired
     private FeedService feedService;
 

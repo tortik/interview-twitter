@@ -26,8 +26,8 @@ public class FeedService {
     @Autowired
     private TweetsDao tweetsDao;
 
-    EmitterProcessor<Tweet> processor = EmitterProcessor.<Tweet>create();
-    Map<String, Flux<Tweet>> liveMessagesSubscribers = Maps.newHashMap();
+    private EmitterProcessor<Tweet> processor = EmitterProcessor.<Tweet>create();
+    private Map<String, Flux<Tweet>> liveMessagesSubscribers = Maps.newHashMap();
 
     public void pushTweetToLive(Tweet tweet) {
         log.debug("Pushing tweet {} to live feed", tweet);
